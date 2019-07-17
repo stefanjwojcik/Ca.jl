@@ -1,13 +1,18 @@
 module Ca
 
+using CSV, LinearAlgebra
+
 # methods to export and make available
-export foo, bar
+export foo, bar, ca
 
 foo(x::T, y::T) where T <: Real = x + y - 5
 bar(z::Float64) = foo(sqrt(z), z)
 
 # the initial correspondence analysis function
 function ca(M::Array{Float64, 2}, k::Integer)
+    if typeof(M) != Array{Float64, 2}
+        convert(Array{Float64, 2}, M)
+    end
     O = M ./ sum(M)
     #row totals (row masses) by each of the column totals.
     E = sum(O, dims=2) .* sum(O, dims=1)

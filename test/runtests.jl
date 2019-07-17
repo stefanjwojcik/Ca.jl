@@ -20,3 +20,7 @@ end
     dat, names = cadata("author")
     @test dat[1, 1:3] == [550, 116, 147]
 end
+
+@testset "ca" begin
+    @test ca(ones(5,5), 2)[1] ≈ 0.8944271909999154
+end

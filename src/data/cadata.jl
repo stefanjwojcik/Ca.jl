@@ -1,7 +1,5 @@
 export cadata
 
-using CSV
-
 function cadata(name)
     basepath = joinpath(dirname(pathof(Ca)), "data")
     if name == "smoke"
