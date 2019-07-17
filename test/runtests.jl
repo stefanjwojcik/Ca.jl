@@ -23,4 +23,9 @@ end
 
 @testset "ca" begin
     @test ca(ones(5,5), 2)[1] ≈ 0.8944271909999154
+
+    smoke, names = cadata("smoke")
+    @test ca(smoke, 2)[1] ≈ -0.4621229283237114
+
+    @test_throws LinearAlgebra.LAPACKException ca(zeros(5,5), 1)
 end
