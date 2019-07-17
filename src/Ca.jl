@@ -16,4 +16,6 @@ function ca(M::Array{Float64, 2}, k::Integer)
     U[:, k]
 end
 
+include("data/cadata.jl")
+
 end # module

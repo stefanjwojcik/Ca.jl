@@ -1,4 +1,4 @@
-using Ca, Test, LinearAlgebra
+using Ca, Test, LinearAlgebra, CSV
 
 @testset "foo" begin
     x, y = 5, 7
@@ -11,4 +11,12 @@ end
 @testset "bar" begin
     z = 4.
     @test bar(z) == 1.
+end
+
+@testset "data" begin
+    dat, names = cadata("smoke")
+    @test dat[1, :] == [4, 2, 3, 2]
+
+    dat, names = cadata("author")
+    @test dat[1, 1:3] == [550, 116, 147]
 end
