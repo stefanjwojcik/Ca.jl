@@ -2,8 +2,7 @@ language: julia
 os:
   - osx
 julia:
-  - 1.0
-  - nightly
+  - 1.0.3
 notifications:
   email: false
 git:
@@ -12,3 +11,5 @@ git:
 matrix:
   allow_failures:
     - julia: nightly
+codecov: true
+coveralls: true
