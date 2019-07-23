@@ -1,6 +1,4 @@
 language: julia
-os:
-  - osx
 julia:
   - 1.0.3
 codecov: true
