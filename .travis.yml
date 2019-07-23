@@ -3,13 +3,5 @@ os:
   - osx
 julia:
   - 1.0.3
-notifications:
-  email: false
-git:
-  depth: 99999999
-
-matrix:
-  allow_failures:
-    - julia: nightly
 codecov: true
 coveralls: true
