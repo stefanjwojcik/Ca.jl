@@ -40,7 +40,7 @@ include("data/cadata.jl")
 
 ###### REVISING THE CA FUNCTION
 
-function Ca_V2 (obj::Array{Int64, 2};
+function Ca_V2(obj::Array{Int64, 2};
     nd::Integer = missing,
     cnames = missing,
     rnames = missing,
