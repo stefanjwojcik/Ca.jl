@@ -1,6 +1,6 @@
 module Ca
 
-using CSV, LinearAlgebra, DataFrames, DataFramesMeta, InvertedIndices
+using Pkg, CSV, LinearAlgebra, DataFrames, DataFramesMeta, InvertedIndices
 
 # methods to export and make available
 export foo, bar, ca
@@ -80,11 +80,11 @@ function Ca_V2 (obj::Array{Int64, 2};
     end
     #N <- matrix(as.matrix(Ntemp), nrow = dim(Ntemp)[1], ncol = dim(Ntemp)[2])
     subsetrowt = subsetrow
-    if !ismissing(subsetrow[1]) & !ismising(suprow[1])
+    if !ismissing(subsetrow[1]) & !ismissing(suprow[1])
          subsetrowi = subsetrow
          subsetrowt = sort(vcat(subsetrow, suprow))
          subsetrowt = subsetrowt[Int.(Set(subsetrowt))]
-         I <- length(subsetrowt)
+         I = length(subsetrowt)
          for q in reverse(1:length(suprow))
              subsetrow = subsetrow[subsetrow ∉ suprow[q]]
              subsetrow = subsetrow - 1*(suprow[q] < subsetrow)
@@ -92,7 +92,7 @@ function Ca_V2 (obj::Array{Int64, 2};
         suprow = [q for q in 1:length(suprow) if suprow[q] ∈ subsetrowt]
      end
 
-     subsetcolt <- subsetcol
+     subsetcolt = subsetcol
 
      if !ismissing(subsetcol[1]) & !ismissing(supcol[1])
          subsetcoli = subsetcol
@@ -104,10 +104,10 @@ function Ca_V2 (obj::Array{Int64, 2};
          subsetcol = subsetcol - 1*(supcol[q] < subsetcol)
      }
      for q in 1:length(supcol)
-         supcol[q] <- (1:length(subsetcolt))[subsetcolt ==supcol[q]]
+         supcol = [q for q in 1:length(subsetcol) if supcol[q] ∈ subsetcolt]
          ## LEFT OFF HERE
-     dim.N <- dim(N)
-     if (!is.na(subsetrow[1])) {
+     dim.N = size(N)
+     if !ismissing(subsetrow[1])) {
      if (!is.na(supcol[1]))
        SC <- as.matrix(SC[subsetrow, ])
     }
